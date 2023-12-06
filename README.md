@@ -12,7 +12,7 @@ Tailwind CSS: Styling is done with Tailwind CSS, ensuring a modern and responsiv
 Installation
 To run the Food Order App locally, follow these steps:
 
-Clone the repository: git clone https://github.com/your-username/food-order-app.git
+Clone the repository: git clone https://github.com/adamTop1/Food-Order-App.git
 
 Install dependencies on backend folder: npm install
 Start the backend: node app.js
