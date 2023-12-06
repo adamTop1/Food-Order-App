@@ -28,7 +28,6 @@ function Checkout({ onClose, onOpenConfirmation }) {
 			if (!response.ok) {
 				throw new Error('Failed to update user data.')
 			}
-			
 			return resData.message
 		}
 		
