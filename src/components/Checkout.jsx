@@ -10,14 +10,18 @@ function Checkout({ onClose, onOpenConfirmation }) {
 		const userOrder = cartContext.items
 
 		const fd = new FormData(event.target)
-		const data = Object.fromEntries(fd)
-		console.log(data)
+		const customerData = Object.fromEntries(fd)
 
 		
-		async function updateUserPlaces(meals) {
+		async function updateUserPlaces() {
 			const response = await fetch('http://localhost:3000/orders', {
-				method: 'PUT',
-				body: JSON.stringify({ meals }),
+				method: 'POST',
+				body: JSON.stringify({
+					order: {
+						items: userOrder,
+						customer: customerData
+					}
+				}),
 				headers: {
 					'Content-Type': 'application/json',
 				},
@@ -28,10 +32,11 @@ function Checkout({ onClose, onOpenConfirmation }) {
 			if (!response.ok) {
 				throw new Error('Failed to update user data.')
 			}
+			
 			return resData.message
 		}
 		
-		updateUserPlaces(userOrder)
+		updateUserPlaces()
 		onOpenConfirmation()
 	}
 
